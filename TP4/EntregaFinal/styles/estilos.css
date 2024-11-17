@@ -1,0 +1,762 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+.fondo-inicio {
+    width: 100%;
+    height: 144vh;
+    background-image: url(../imgs/inicio/fondo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+h2{
+    font-size: 60px;
+}
+
+/* nav */
+
+/* Estilo para el menú hamburguesa */
+.nav {
+    width: 100%;
+}
+
+.nav nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 120px 0 120px;
+    position: sticky;
+    z-index: 1000;
+}
+
+.menu-haburguesa img {
+    cursor: pointer;
+    width: 30px; /* Tamaño de las barras */
+    height: 20px;
+    transition: transform 0.3s ease; /* Transición para el cambio de imagen */
+}
+
+/* Estilo de las barras (por defecto) */
+.menu-haburguesa img {
+    position: relative;
+    display: block;
+}
+
+.menu-haburguesa img:before, .menu-haburguesa img:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: #000;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.menu-haburguesa img:before {
+    top: 0;
+}
+
+.menu-haburguesa img:after {
+    bottom: 0;
+}
+
+/* Animación para convertir las barras en una cruz */
+.menu-haburguesa.open img:before {
+    transform: rotate(45deg);
+    top: 50%;
+}
+
+.menu-haburguesa.open img:after {
+    transform: rotate(-45deg);
+    bottom: 50%;
+}
+
+.menu-haburguesa.open img {
+    transform: rotate(180deg); /* Rota la imagen */
+}
+
+/* Estilo del menú desplegable */
+.menu-desplegable {
+    position: fixed;
+    top: 0;
+    left: -100%; /* El menú empieza fuera de la pantalla */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: left 0.3s ease; /* Desplazamiento del menú */
+    z-index: 999;
+}
+
+.menu-desplegable ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+.menu-desplegable li {
+    padding: 20px;
+    text-align: left;
+    border-bottom: 1px solid #444;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.menu-desplegable.show {
+    left: 0;
+}
+
+.menu-desplegable.show li {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.2s; /* Los elementos aparecen con un pequeño retraso */
+}
+
+.menu-desplegable.show li:nth-child(1) {
+    transition-delay: 0.2s;
+}
+
+.menu-desplegable.show li:nth-child(2) {
+    transition-delay: 0.4s;
+}
+
+.menu-desplegable.show li:nth-child(3) {
+    transition-delay: 0.6s;
+}
+
+.nav .btn-comprar {
+    width: 200px;
+    height: 50px;
+    background: linear-gradient(135deg, #83C252, #6EAB47);
+    border: 8px solid #fff;
+    border-radius: 111px;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 20px;
+    box-shadow: 5px 5px 0px 0px rgba(2, 24, 126, 1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-comprar:hover {
+    background: linear-gradient(135deg, var(--collection-1-verde-secundario), #9FD974); 
+    transform: translateY(-5px) scale(1.05) rotate(-3deg); 
+    box-shadow: -5px 10px 20px rgba(2, 24, 126, 0.7); 
+    animation: glow-pulse 1s infinite alternate; 
+    color: #ffe57f; 
+}
+
+/* parte de la izquierda */
+
+.arbol-uno {
+    position: relative;
+    right: 130px;
+    bottom: 60px;
+    z-index: 800;
+}
+
+.piedra-uno {
+    position: relative;
+    right: 420px;
+    bottom: 50px;
+    z-index: 900;
+}
+
+.arbusto-uno {
+    position: relative;
+    right: 500px;
+    top: 5px;
+    z-index: 1000;
+}
+
+.arbusto-dos {
+    position: relative;
+    right: 680px;
+    bottom: 90px;
+    z-index: 700;
+}
+
+/* parte del medio */
+
+.logo-inicio {
+    position: relative;
+    z-index: 1000;
+    bottom: 950px;
+    left: 35%;
+}
+
+.personaje-uno {
+    position: relative;
+    z-index: 1000;
+    bottom: 500px;
+}
+
+.personaje-dos {
+    position: relative;
+    z-index: 900;
+    bottom: 650px;
+    right: 155px;
+}
+
+.personaje-tres {
+    position: relative;
+    z-index: 800;
+    bottom: 600px;
+    right: 230px;
+}
+
+/* parte de la derecha */
+
+.arbol-dos {
+    position: relative;
+    z-index: 500;
+    bottom: 1260px;
+    left: 1120px;
+}
+
+.arbol-tres {
+    position: relative;
+    z-index: 300;
+    bottom: 1350px;
+    left: 885px;
+}
+
+.piedra-dos {
+    position: relative;
+    z-index: 1000;
+    bottom: 1230px;
+    left: 560px;
+}
+
+.piedra-tres {
+    position: relative;
+    z-index: 900;
+    bottom: 1240px;
+    left: 530px;
+}
+
+.piedra-cuatro {
+    position: relative;
+    z-index: 700;
+    bottom: 1260px;
+    left: 370px;
+}
+
+.arbusto-tres {
+    position: relative;
+    z-index: 400;
+    bottom: 1285px;
+    left: 350px;
+}
+
+.arbusto-cuatro {
+    position: relative;
+    z-index: 200;
+    bottom: 1360px;
+    left: 50px;
+}
+
+/* texto */
+
+.contenedor-texto-divertido-h {
+    position: relative;
+    width: 508px;
+    left: 90px;
+    bottom: 100px;
+}
+
+.contenedor-texto-divertido-h h3 {
+    color: rgba(2, 24, 126, 1);
+    font-size: 47px;
+    font-weight: bold;
+}
+
+.contenedor-texto-divertido-h .contenedor-texto-divertido-p {
+    margin-top: 20px;
+    position: relative;
+    width: 704px;
+}
+
+.contenedor-texto-divertido-h .contenedor-texto-divertido-p p {
+    color: rgba(2, 24, 126, 1);
+    font-size: 20px;
+}
+
+/* SEGUNDA PANTALLA */
+.appdivertida {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(#88DE7F 10%, #A8EBEC 90%);
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 250px;
+}
+
+.gif-container {
+    position: relative;
+    width: 530.38px; 
+    height: 324.35px; 
+    top: 190px;
+    right: 110px;
+    border: 29px solid #1B5F99;   
+    border-radius: 77px;
+    overflow: hidden;         
+}
+
+/* Estilos de las imágenes GIF */
+.gif {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0; /* Por defecto, todas las imágenes estarán ocultas */
+    transition: opacity 1s ease-in-out; /* Transición suave */
+}
+
+/* Mostrar solo una imagen a la vez */
+.gif.active {
+    opacity: 1;
+}
+
+/* No modificar la posición del contenedor de personajes */
+.fondo-personajes {
+    position: relative;
+}
+
+.personaje-cuatro {
+    position: relative;
+    left: 1026px;
+    bottom: 610px;
+}
+
+.gif4 {
+    position: relative;
+    right: 200px;
+    top: 190px;
+    width: 576.38px;
+    height: 324.35px;
+}
+
+.personaje-cinco {
+    position: relative;
+    right: 360px;
+    bottom: 610px;
+}
+
+.divertida{
+    font-size: 47px;
+    width: 500px;
+}
+
+.texto-appdivertida{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial;
+}
+
+/* TERCERA PANTALLA */
+
+.info-juego {
+    margin-bottom: 130px;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.card {
+    width: 333px;
+    margin: 20px;
+    display: grid;
+    justify-content: space-around;
+    opacity: 0;  /* Iniciar ocultas */
+    transform: translateY(50px);  /* Desplazadas hacia abajo */
+    transition: opacity 0.5s ease, transform 0.5s ease;  /* Transición suave */
+}
+
+
+.card p {
+    margin-top: 15px;
+    height: 218px;
+    font-size: 20px;
+    color: #333;
+}
+
+.card.show {
+    opacity: 1;  /* Hacer visible */
+    transform: translateY(0);  /* Desplazarse hacia arriba */
+}
+
+.card:nth-child(1).show {
+    transition-delay: 0s;
+}
+
+.card:nth-child(2).show {
+    transition-delay: 0.3s;
+}
+
+.card:nth-child(3).show {
+    transition-delay: 0.6s;
+}
+
+
+/* CUARTA PANTALLA */
+
+.seccion-descarga {
+    background-image:url(../imgs/descarga/fondo-violeta.png);
+    display: flex;
+    flex-direction: column;  
+    align-items: center;    
+    justify-content: center; 
+    text-align: center;      
+    width: 100%;           
+    height: 1157px;           
+    position: relative;  /* Necesario para los movimientos de la imagen */
+}
+
+.seccion-descarga .seccion-titulo {
+    padding-top: 100px;
+    margin-bottom: 70px;
+    width: 950px;
+    height: 153px;
+}
+
+.seccion-descarga .seccion-titulo h2 {
+    color: #fff;
+}
+
+.btn-descarga {
+    margin-top: 50px;
+    margin-bottom: -30px;  
+    padding: 12px 24px;  
+    font-size: 30px;      
+    background-color: #83C252; 
+    color: white;        
+    border: 8px solid #fff;      
+    border-radius: 50px;  
+    transition: background-color 0.3s ease; 
+    z-index: 20;
+}
+
+.btn-descarga:hover {
+    cursor: pointer;     
+    background-color: #45a049; /* Cambio de color al pasar el mouse */
+}
+
+.seccion-descarga .seccion-imagen {
+    display: flex;
+    width: 100%;
+    height: 717px;
+    position: relative;
+    overflow: hidden; 
+}
+
+.seccion-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.1s ease;
+    will-change: transform;
+    transform: scale(1.1);  /* Escala la imagen al 120% de su tamaño original */
+}
+
+
+/* quinta pantalla */
+
+.textos .contenedor-titulo {
+    display: flex;
+    width: 802px;
+    height: 57px;
+    margin: 170px 0 120px 100px;
+}
+
+.textos .contenedor-titulo h2 {
+    font-size: 60px;
+    font-family: "lato";
+}
+.textos .contenedor-general-amigos {
+    bottom: 20px;
+    width: 100%;
+    display: grid;
+    justify-content: space-around;
+    margin-bottom: 100px;
+}
+
+.contenedor-info {
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: auto 40%;
+    margin: 10px;
+}
+
+.contenedor-info .img {
+    display: flex;
+    width: 500px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.contenedor-info .img img {
+    opacity: 0;
+    transition: .5s;
+}
+
+.contenedor-info .text {
+    margin-top: 80px;
+}
+
+.contenedor-general-amigos .contenedor-info h3 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.contenedor-general-amigos .contenedor-info p {
+    font-size: 20px;
+}
+
+
+.textos .contenedor-img {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;  /* Para evitar el desbordamiento de imágenes */
+    width: 100%;
+    height: 100%;
+    margin-top: -50px;
+}
+
+.contenedor-img img {
+    opacity: 0;
+    transition: 1s;
+}
+
+
+
+
+/*seccion video*/
+
+#video{
+    display: none;
+}
+
+.video{
+    background-image: url(../imgs/video/fondo-amarillo.png);
+    display: flex;
+    justify-content: center;
+    height: 1443px;
+}
+
+.titulo-container{
+   margin-left: 100px;
+}
+
+.titulo-container h2{
+    color: #fff;
+    width: 802px;
+    height: 171px;
+    margin-bottom: 50px;
+    margin-top: 200px;
+}
+
+.tres{
+    margin-top: 270px;
+    margin-left: -170px;
+    width: 638px;
+    height: 989px;
+}
+
+
+/*seccion 3d*/
+
+.tresd{
+   display: flex;
+  
+   justify-content: center;
+}
+
+.tresd div{
+    margin-left: 100px;
+}
+
+.tresd h2{
+    color: #9D2121;
+    width: 746px;
+    height: 285px;
+    margin-top: 200px;
+    margin-bottom: 100px;
+}
+
+.tresd p{
+    width: 467px;
+}
+
+.tresd img{
+    margin-left: -230px;
+}
+
+
+/*seccion imagenes personajes*/
+
+.imagen-personajes {
+    background-image: url(../imgs/imagen/455.png);
+    width: 100%;
+    height: 729px; 
+    display: flex;  
+    flex-direction: column; 
+    gap: 20px; 
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.personajes {
+    display: flex;  
+    flex-direction: row; 
+    justify-content: space-evenly;
+    gap: 25px;
+    height: 375px;
+}
+
+.personajes2 {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-evenly;
+    gap: 25px; 
+    height: 325px;
+}
+
+
+.personajes img.imgcorta, .personajes2 img.imgcorta{
+    width: 213px;
+}
+
+.personajes img, .personajes2 img  {
+    transition: transform 0.3s ease, filter 0.3s ease; 
+    
+}
+
+.personajes img:hover, .personajes2 img:hover {
+    transform: scale(1.1); 
+    filter: brightness(1.3); 
+}
+
+
+
+
+/*novedades*/
+
+.novedades{
+    background-color: #4CAF50;
+    display: flex;
+    flex-direction: column;
+}
+
+.novedades h2{
+    margin-top: 145px;
+    width: 816px;
+    height: 171px;
+}
+
+.gif7{
+    margin-left: -300px;
+    margin-top: 100px;
+}
+
+.nov-container{
+    margin-left: 100px;
+}
+
+/* imagen antes del footer */
+
+.imagen-personajes {
+    width: 100%;
+}
+
+.imagen-personajes img {
+    width: 100%;
+}
+
+/* Contenedor general */
+.suscripcion-container {
+    display: flex;
+    align-items: center;
+    border-radius: 25px; 
+    border: 9px solid white; 
+    overflow: hidden; 
+    background-color: #ECECEC; 
+    width: 780px;
+    height: 100px;
+    margin-top: 50px;
+  }
+  
+  /* Estilos del input */
+  .input-suscripcion {
+    border: none; 
+    padding: 10px;
+    font-size: 20px;
+    flex: 1; 
+    border-right: 9px solid white; 
+    color: white; /* Color del texto */
+    background-color: #ECECEC; 
+  }
+  
+  /* Estilos del botón */
+  .btn-suscripcion {
+    padding: 10px 20px;
+    background-color: #83C252; 
+    color: white;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-suscripcion:hover {
+    background-color: #e67e22; 
+  }
+  
+  .nov-container p{
+    width: 578px;
+    height: 95px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+  
+
+/*footer*/
+
+footer{
+    background-color: #5e5e5d;
+}
+.plataformas{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    background-color: #242424;
+}
+
+.plataformas img{
+    width: 1080px;
+    height: 75px;
+}
+
+footer p{
+    margin-left: 100px;
+    margin-top: 20px;
+    width: 820px;
+    height: 361px;
+    font-size: 20px;
+    color: white;
+}
+
+.redes-sociales{
+    margin-left: 100px;
+    height: 84px;
+}
